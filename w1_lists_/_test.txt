@@ -1,0 +1,5 @@
+The doctests in the files shouldn't yet, but the code should at least not have
+syntax errors:
+
+    >>> import practice
+    >>> import assessment
