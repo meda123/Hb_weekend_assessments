@@ -115,9 +115,7 @@ def every_other_item(items):
        ... )
        ['you', 'are', 'good', 'at', 'code']
     """
-
-    return ['the wrong thing']
-
+    return items [ : : 2]
 
 def largest_n_items(items, n):
     """Return the `n` largest integers in list, in ascending order.
