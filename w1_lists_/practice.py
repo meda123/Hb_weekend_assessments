@@ -451,19 +451,19 @@ def find_letter_indices(words, letter):
 
 
 
-    # indices = []
+    indices = []
 
-    # for word in words:
-    #     found_at = None
+    for word in words:
+        found_at = None
 
-    #     for i, wletter in enumerate(word):
-    #         if wletter == letter:
-    #             found_at = i
-    #             break
+        for i, wletter in enumerate(word):
+            if wletter == letter:
+                found_at = i
+                break
 
-    #     indices.append(found_at)
+        indices.append(found_at)
 
-    # return indices
+    return indices
 
 
 
