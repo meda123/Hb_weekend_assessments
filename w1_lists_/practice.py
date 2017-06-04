@@ -85,11 +85,10 @@ def smallest_int(numbers):
 
     smallest = None 
 
-    for n in numbers:
-        if smallest is None or n < smallest:
-            smallest = n
+    for num in numbers:
+        if smallest is None or num < smallest:
+            smallest = num
     return smallest
-
 
 
 
@@ -112,11 +111,12 @@ def largest_int(numbers):
         True
     """
 
+
     largest = None 
 
     for num in numbers:
-        if num is None or num > largest:
-            largest = num
+        if largest is None or num > largest:
+            largest = num 
     return largest
 
 
@@ -135,11 +135,12 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
-    half= []
-    for num in numbers:
-        divs = num/float(2)
-        half.append(divs)
-    return half   
+    halfsies = [] 
+    for num in numbers: 
+        half_num = num / float(2)
+        halfsies.append(half_num)
+    return halfsies 
+  
 
 
 def word_lengths(words):
@@ -151,11 +152,11 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    length = [] 
+    len_words = [] 
     for word in words:
         len_word = len(word)
-        length.append(len_word)
-    return length
+        len_words.append(len_word)
+    return len_words
 
 
 def sum_numbers(numbers):
@@ -412,19 +413,57 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    indices = []
+    index_list = [] 
 
     for word in words:
-        found_at = None
+        
+        
+        for i in range(len(word)):
+            if word[i] == letter:
+                index_list.append(i)
 
-        for i, wletter in enumerate(word):
-            if wletter == letter:
-                found_at = i
-                break
+    return index_list        
 
-        indices.append(found_at)
 
-    return indices
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # indices = []
+
+    # for word in words:
+    #     found_at = None
+
+    #     for i, wletter in enumerate(word):
+    #         if wletter == letter:
+    #             found_at = i
+    #             break
+
+    #     indices.append(found_at)
+
+    # return indices
 
 
 
