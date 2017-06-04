@@ -139,7 +139,38 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    largest_n = []
+
+    # Sort through the list in descending order (lg - small)
+    desc_items = sorted(items, reverse = True)
+
+    # Pick the top n numbers
+    for i in range(n):
+        largest_n.append(desc_items[i])
+
+    # Re-sort from ascending
+    return sorted(largest_n)
+
+    ## Another solution: A
+    # return sorted(items)[len(items)-n:]
+
+
+    ## Another solution: B
+    # if n == 0:
+    #     return []
+    # # sort list ascending and return last `n`:
+
+    # sorted_list = sorted(items)
+    # return sorted_list[-n:]
+
+
+
+
+
+
+
+
+
 
 
 #####################################################################
