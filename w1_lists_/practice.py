@@ -413,58 +413,20 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    index_list = [] 
 
-    for word in words:
-        
-        
+    index_list = []
+
+    for word in words: 
+        index = None 
+
         for i in range(len(word)):
             if word[i] == letter:
-                index_list.append(i)
-
-    return index_list        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    indices = []
-
-    for word in words:
-        found_at = None
-
-        for i, wletter in enumerate(word):
-            if wletter == letter:
-                found_at = i
+                index = i
                 break
 
-        indices.append(found_at)
+        index_list.append(index) 
 
-    return indices
-
+    return index_list        
 
 
 #####################################################################

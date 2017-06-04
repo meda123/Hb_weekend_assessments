@@ -17,7 +17,12 @@ def all_odd(numbers):
         []
     """
 
-    return ['the wrong thing']
+    odd_nums = []
+
+    for num in numbers:
+        if num % 2 != 0:
+            odd_nums.append(num)
+    return odd_nums
 
 
 def print_indices(items):
@@ -46,7 +51,8 @@ def print_indices(items):
     
     """
 
-    print("Nothing at all")
+    for i, items in enumerate(items):
+        print i, items 
 
 
 def foods_in_common(foods1, foods2):
@@ -84,7 +90,13 @@ def foods_in_common(foods1, foods2):
 
     """
 
-    return ['the wrong thing']
+    common_items = []
+
+    for foods in set(foods1):
+        if foods in set(foods2):
+            common_items.append(foods)
+
+    return sorted(common_items)
 
 
 def every_other_item(items):
