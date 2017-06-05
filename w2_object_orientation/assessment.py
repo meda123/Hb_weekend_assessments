@@ -68,5 +68,34 @@ Part 1: Discussion
 # Parts 2 through 5:
 # Create your classes and class methods
 
+################################################################################
+"""
+PART 2 
+Directions: Make Python classes that could store each of the following three 
+pieces of data. Use the tables below as examples to guide you in creating class
+definitions for the following objects (see PDF in the w2_object_orientation
+folder called PDF instructions). 
+
+Define an __init__ method to allow callers of this class to provide initial values
+for each attribute. Note: these classes should all be subclasses object, none is
+a subclass of any other. 
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
