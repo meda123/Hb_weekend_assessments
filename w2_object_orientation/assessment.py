@@ -89,6 +89,10 @@ class Student(object):
         self.last_name = last_name
         self.address = address
 
+    def __repr__(self):
+        m = "<Student first_name =%s last_name=%s address=%s>"
+        return m % (self.first_name, self.last_name, self.address)
+
 class Question(object):
     """ Question class, as in a question in an exam. """
 
@@ -96,15 +100,17 @@ class Question(object):
         self.question = question
         self.correct_answer = correct_answer
 
-    def __repr__(self):
-        return "< Question question:%s correct_answer:%s>" % (self.question, self.correct_answer)
-
     def ask_and_evaluate(self):
         """ Pose a question to user, records user answer, and returns
         True if answer is correct and False otherwise."""
 
         answer = raw_input(self.question + " >")
         return self.correct_answer == answer 
+
+    def __repr__(self):
+        m = "<Question question=%s correct_answer=%s answer=%s>"
+        return m % (self.question, self.correct_answer, self.answer)
+
 
 
 class Exam(object):
@@ -121,13 +127,6 @@ class Exam(object):
         question_object = Question(question, correct_answer)
         self.questions.append(question_object)
 
-    """
-    # Write method, administers all of the exam's question (how do you access
-    each question in turn? Once you have a question, how do you administer it?
-
-    Returns the user's tally of correct (as a decimal percentage)
-    """ 
-
     def administer(self):
         """ Administer a test, returning the score."""
 
@@ -140,7 +139,54 @@ class Exam(object):
 
         return float(score/len(self.questions))
 
-        
+    def __repr__(self):
+        m = "<Exam name=%s question=%s correct_answer=%s score=%s>"
+        return m % (self.name, self.question, self.correct_answer, self.score) 
+
+
+class StudentExam(object):
+
+    def __init__(self):
+        pass 
+
+    def take_test(exam, student):
+        """ Administer exam to student and record score on student."""
+
+        student.score = exam.administer()
+        print "Your score is %2f percent." % (student.score * 100)
+
+    def __repr__(self):
+        m = "<StudentExam student.score=%s>"
+        return m %(self.student.score)
+
+
+
+def example():
+    """ Show usage of exam, questions, and student."""
+
+    exam = Exam('midterm')
+
+    exam.add_question(
+        'What is 2+2', '4')
+
+    exam.add_question(
+        'What is 3+5' , '8')
+
+    exam.add_question(
+        'Lima is the capital of what country?', 'Peru')
+
+    student = Student(
+        'Medalis',
+        'CoderNewb',
+        '555 Stanny Way')
+
+    take_test(exam, student) 
+
+print example()
+
+
+
+
 
 
 
