@@ -81,6 +81,78 @@ for each attribute. Note: these classes should all be subclasses object, none is
 a subclass of any other. 
 """
 
+class Student(object):
+    """ This is a Student object. """
+
+    def __init__(self, first_name, last_name, address):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.address = address
+
+class Question(object):
+    """ Question class, as in a question in an exam. """
+
+    def __init__(self, question, correct_answer):
+        self.question = question
+        self.correct_answer = correct_answer
+
+    def __repr__(self):
+        return "< Question question:%s correct_answer:%s>" % (self.question, self.correct_answer)
+
+    def ask_and_evaluate(self):
+        """ Pose a question to user, records user answer, and returns
+        True if answer is correct and False otherwise."""
+
+        answer = raw_input(self.question + " >")
+        return self.correct_answer == answer 
+
+
+class Exam(object):
+    """ Exam object. Exams comprise zero or more question. """
+
+    def __init__(self, name):
+        self.name = name
+        # We initialize the questions attribute as an empty list
+        self.questions = []
+
+    def add_question(self, question, correct_answer):
+        """ Add question to exam."""
+
+        question_object = Question(question, correct_answer)
+        self.questions.append(question_object)
+
+    """
+    # Write method, administers all of the exam's question (how do you access
+    each question in turn? Once you have a question, how do you administer it?
+
+    Returns the user's tally of correct (as a decimal percentage)
+    """ 
+
+    def administer(self):
+        """ Administer a test, returning the score."""
+
+        score = 0
+
+        #loop through exam list 
+        for question in self.questions:
+            if question.ask_and_evaluate():
+                score = score + 1
+
+        return float(score/len(self.questions))
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
