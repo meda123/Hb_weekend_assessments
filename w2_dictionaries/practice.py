@@ -32,7 +32,15 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
-    return []
+    words_set = set()
+    for word in words:
+        words_set.add(word)
+
+    return words_set
+
+
+        
+
 
 
 def find_unique_common_items(items1, items2):
@@ -62,7 +70,16 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return []
+    in_common = {}
+
+    for item1 in items1:
+        for item2 in items2:
+            if item1 == item2:
+                in_common[item1] = item1
+
+    return in_common.keys()
+
+   
 
 def get_sum_zero_pairs(numbers):
     """Given list of numbers, return list of pairs summing to 0.
@@ -91,7 +108,17 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    return []
+
+    # Fail fast, look for - version of num, only exception is 0 pair w itself 
+    
+    result = []
+    set_numbers = set(numbers)
+
+    for num in set_numbers:
+        if num >= 0 and -num in set_numbers:
+            result.append([-num, num])
+
+    return result
 
 
 def top_chars(phrase):
@@ -119,7 +146,29 @@ def top_chars(phrase):
 
     """
 
-    return []
+    # Count each unique char, for sure dictionary 
+
+    tallies = {}
+    most_common_count = 0 
+
+    for letter in phrase:
+
+        if letter == ' ':
+            continue
+            
+        tallies[letter] = tallies.get(letter, 0) + 1 
+
+        if tallies[letter] > most_common_count:
+            most_common_count = tallies[letter]
+
+        most_common = []
+
+        for letter, count in tallies.items():
+            if count == most_common_count:
+                most_common.append(letter)
+
+    return sorted(most_common)
+
 
 #####################################################################
 # You can ignore everything below this.
