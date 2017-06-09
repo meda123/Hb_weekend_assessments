@@ -146,7 +146,30 @@ def translate_to_pirate_talk(phrase):
         'me swabbie be not a man!'
     """
 
-    return ""
+    translation = []
+    pirate_dic = {'sir': 'matey',
+                'hotel': 'fleabag inn',
+                'student': 'swabbie',
+                'man': 'matey',
+                'professor': 'foul blaggart',
+                'restaurant': 'galley',
+                'your': 'yer',
+                'excuse': 'arr',
+                'students': 'swabbies',
+                'are': 'be',
+                'restroom': 'head',
+                'my': 'me',
+                'is': 'be'     
+                    }
+
+    for word in phrase.split(' '):
+        trans = pirate_dic.get(word, word)
+        translation.append(trans)
+
+    return ' '.join(translation)
+
+    #More elegant way:
+    # return " ".join([en_to_pirate.get(word, word) for word in phrase.split()])
 
 
 def kids_game(names):
@@ -195,7 +218,37 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
 
-    return []
+    # Get first word and remove from consideration; add it to our output 
+    output = [names.pop(0)]
+
+    first_letter_to_words = {}
+
+   #Make a dict of {first-letter: [word-starting-w-that-letter]}
+   #NOTE: .setdefault could also be used here 
+
+    for name in names:
+
+        if name[0] not in first_letter_to_words:
+            first_letter_to_words[name[0]] = [name]
+
+        else:
+            first_letter_to_words[name[0]].append(name)
+
+    #Chain together words until we run out 
+    while True:
+
+        #Starting letter will be the last letter of last word 
+        start_letter = output[-1][-1]
+
+        #If there are no candidate words, we're done 
+        if not first_letter_to_words.get(start_letter):
+            break 
+
+        #Get the first word with that letter and remove it
+        word = first_letter_to_words[start_letter].pop(0)
+        output.append(word)
+
+    return output
 
 #####################################################################
 # You can ignore everything below this.
