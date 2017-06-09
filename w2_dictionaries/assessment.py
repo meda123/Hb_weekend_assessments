@@ -29,7 +29,17 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    return {}
+
+    count_dic = {}
+
+    for word in phrase.split(' '):
+
+        if word ==' ':
+            continue
+        
+        count_dic[word] = count_dic.get(word, 0) +1
+    return count_dic
+
 
 
 def get_melon_price(melon_name):
@@ -54,8 +64,14 @@ def get_melon_price(melon_name):
         'No price found'
     """
 
-    return 0
+    melon_dict = { 'Watermelon': 2.95, 
+                    'Cantaloupe': 2.50, 
+                    'Musk': 3.25, 
+                    'Christmas': 14.25}
 
+    find_price = melon_dict.get(melon_name, 'No price found')
+
+    return find_price 
 
 def word_length_sorted(words):
     """Return list of word-lengths and words.
@@ -76,7 +92,19 @@ def word_length_sorted(words):
         [(2, ['ok']), (9, ['porcupine'])]
     """
 
-    return []
+    word_lengths = {}
+
+    for word in words:
+        word_lengths.setdefault(len(word), []).append(word)
+
+    #Sort values inside dictionary based on alpha order
+    for dict_vals in word_lengths.values():
+        dict_vals.sort()
+
+    #Sort keys: .items method creates a list of tuple pairs  
+    return sorted(word_lengths.items()) 
+
+    
 
 
 def translate_to_pirate_talk(phrase):
