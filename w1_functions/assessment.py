@@ -70,7 +70,13 @@ def is_berry(fruit):
 
     """
 
-    pass
+    berry = ["strawberry", "raspberry", "blackberry"]
+
+    if fruit in berry:
+        return True     
+
+    return False 
+ 
 
 
 def shipping_cost(fruit):
